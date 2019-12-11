@@ -1,4 +1,6 @@
-public class Fakultetas {
+import java.util.Comparator;
+
+public class Fakultetas implements Comparable{
 
     int pazymejimoNr;
     String pavardeVardas;
@@ -53,5 +55,13 @@ public class Fakultetas {
                 ", gimimoData = " + gimimoData +
                 ", grupe = " + grupe +
                 ", vidurkis = " + vidurkis + "\n";
+    }
+
+
+    @Override
+    public int compareTo(Object o) {
+        return Comparator.comparing(Fakultetas::getVidurkis)
+                .reversed()
+                .compare(this, (Fakultetas)o);
     }
 }
